@@ -1,2 +1,2 @@
-# mr-meseeks
-Mr. Meseeks
+# mr-meeseeks
+Mr. Meeseeks
