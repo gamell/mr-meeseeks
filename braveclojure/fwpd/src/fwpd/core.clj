@@ -36,8 +36,29 @@
 
 ; Exercises
 
+(def suspects (mapify (parse (slurp filename))))
+
 ; Return a list of names
 
 (defn glitter-filter-list 
   [minimum-glitter records]
   (map #(% :name) (glitter-filter minimum-glitter records)))
+
+; Append
+
+(defn append 
+  [suspects subject]
+  (conj suspects subject))
+
+; Validate
+
+(def not-empty? (complement empty?))
+
+(def validations {:name not-empty? :glitter-score not-empty?})
+
+(defn validate
+  [validations subject]
+  (filter 
+    (fn [pair] 
+      ((get validations (first pair)) (second pair)) 
+      subject)))
